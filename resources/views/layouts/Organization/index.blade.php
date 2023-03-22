@@ -1,7 +1,5 @@
 @extends('layouts.SideBar')
 
-
-
 @section('sideBar')
 <div class="wrapper">
   <div class="content-wrapper">
@@ -29,7 +27,7 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Student Name</th>
+                        <th>Organization Id</th>
                         <th>Student Email</th>
                         <th>Gender</th>
                         <th>Student Image</th>
@@ -37,20 +35,22 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>Id</td>
-                        <td>Name</td>
-                        <td>gender</td>
-                          <td>gender</td>
-                          <td>
-                            <a href="" class="btn text-danger">
-                              <i class="fas fa-solid fa-trash mx-4 "></i>
-                            </a>
-                            <a href="" class="btn text-success">
-                              <i class="fas fa-edit"></i>
-                            </a>
-                          </td>
-                        </tr>
+                      @foreach ($organization as $item)
+                      <tr>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->address}}</td>
+                        <td>{{$item->website}}</td>
+                        <td>
+                          <a href="" class="btn text-danger">
+                            <i class="fas fa-solid fa-trash mx-4 "></i>
+                          </a>
+                          <a href="" class="btn text-success">
+                            <i class="fas fa-edit"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      @endforeach
                     </tbody>
                     <tfoot>
                     </tfoot>

@@ -1,6 +1,7 @@
 @extends('layouts.SideBar')
 
-@section('love')
+@section('sideBar')
+
 <div class="wrapper">
   <div class="content-wrapper">
     <div class="content-wrappe">
@@ -21,9 +22,10 @@
                 <div class="card-header">
                   <h3 class="card-title">User Create </h3>
                 </div>
-                <form class="mb-5">
+                <form class="mb-5" action="{{url('user/create')}}" method="POST">
+                  @csrf
                   <div class="card-body">
-                  <div class="form-group">
+                    <div class="form-group">
                       <label for="exampleInputEmail1">First Name</label>
                       <input type="text" class="form-control" name="first_name" placeholder="First Name">
                     </div>
@@ -33,15 +35,26 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">User Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <input type="email" class="form-control" name="user_email" id="exampleInputEmail1"
+                        placeholder="Enter email">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">User Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      <input type="password" class="form-control" name="user_password" id="exampleInputPassword1"
+                        placeholder="Password">
                     </div>
-                  <div class="card-footer">
-                    <button name="submit" class="btn btn-primary">Submit</button>
-                  </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">User Phone Number</label>
+                      <input type="number" class="form-control" name="user_phone" id="exampleInputPassword1"
+                        placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">User Phone Address</label>
+                      <textarea name="user_address" class="form-control" rows="2" placeholder="User Address...."></textarea>
+                    </div>
+                    <div class="card-footer">
+                      <button class="btn btn-primary">User Create</button>
+                    </div>
                 </form>
               </div>
             </div>
@@ -51,5 +64,6 @@
     </div>
   </div>
 </div>
+
 
 @endsection

@@ -1,7 +1,5 @@
 @extends('layouts.SideBar')
 
-
-
 @section('sideBar')
 <div class="wrapper">
   <div class="content-wrapper">

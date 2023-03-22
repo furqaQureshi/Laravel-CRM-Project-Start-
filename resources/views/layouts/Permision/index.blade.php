@@ -2,7 +2,7 @@
 
 
 
-@section('sideBar')
+@section('love')
 <div class="wrapper">
   <div class="content-wrapper">
     <section class="content-header">
