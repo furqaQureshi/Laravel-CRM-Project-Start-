@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\permision;
 use Illuminate\Http\Request;
 
 class PermisionController extends Controller
@@ -12,7 +13,8 @@ class PermisionController extends Controller
     }
     public function create(Request $request)
     {
-        dd($request->input());
+        // $permision = new permision();
+
     }
     public function store(){
         return view('layouts.Permision.index');

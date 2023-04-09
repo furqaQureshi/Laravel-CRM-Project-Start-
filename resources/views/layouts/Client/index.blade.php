@@ -33,15 +33,21 @@
                         <th>Student Email</th>
                         <th>Gender</th>
                         <th>Student Image</th>
+                        <th>Organization Name</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach ($client as $item)
+                      @php
+                          $user = App\Models\Organization::find($item->organization_id)
+                      @endphp
                         <tr>
-                        <td>Id</td>
-                        <td>Name</td>
-                        <td>gender</td>
-                          <td>gender</td>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->email}}</td>
+                        <td>{{$item->phone}}</td>
+                        <td>{{$user->name}}</td>
                           <td>
                             <a href="" class="btn text-danger">
                               <i class="fas fa-solid fa-trash mx-4 "></i>
@@ -51,6 +57,7 @@
                             </a>
                           </td>
                         </tr>
+                      @endforeach
                     </tbody>
                     <tfoot>
                     </tfoot>

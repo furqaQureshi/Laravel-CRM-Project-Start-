@@ -22,7 +22,7 @@
                 <div class="card-header">
                   <h3 class="card-title">User Edit </h3>
                 </div>
-                <form class="mb-5" method="{{url('user/edit/'.$user->id)}}" method="post">
+                <form class="mb-5" method="{{url('user/edit/')}}" method="post">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">First Name</label>

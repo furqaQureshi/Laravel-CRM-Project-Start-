@@ -23,6 +23,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">User Data</h3>
+                <a href="{{url('user/export')}}" class="btn btn-primary float-right">Export To Users</a>
               </div>
               <form action="" method="POST" enctype="multipart/form-data" class="mb-5">
                 <div class="card-body">

@@ -9,7 +9,7 @@ class Client extends Model
 {
     use HasFactory;
 
-    protected $table = "clients";
+    protected $table = "client";
 
     protected $fillable = [
         'organization_id', 'name', 'email', 'phone'
@@ -17,6 +17,6 @@ class Client extends Model
 
     public function organization_get()
     {
-        return $this->hasMany(Organization::class, 'organization_id');
+        return $this->hasOne(Organization::class, 'organization_id');
     }
 }

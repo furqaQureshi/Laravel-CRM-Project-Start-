@@ -1,8 +1,6 @@
 @extends('layouts.SideBar')
 
-
-
-@section('love')
+@section('sideBar')
 <div class="wrapper">
   <div class="content-wrapper">
     <section class="content-header">

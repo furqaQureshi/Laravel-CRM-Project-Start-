@@ -36,8 +36,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/create', [UserController::class, 'create']);
     Route::get('/data', [UserController::class, 'store']);
     Route::get('/edit/{id}', [UserController::class, 'edit']);
-    Route::post('/edit', [UserController::class, 'update']);
+    Route::post('/edit/{id}', [UserController::class, 'update']);
     Route::get('/destroy/{id}', [UserController::class, 'destroy']);
+    Route::get('/export', [UserController::class, 'export_user']);
 });
 // client routes define
 Route::group(['prefix' => 'client'], function () {

@@ -37,7 +37,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        dd($user);
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->user_email;
@@ -49,5 +48,36 @@ class UserController extends Controller
     public function destroy($id)
     {
         return $id . "ok";
+    }
+    public function export_user()
+    {
+        $user = User::all();
+        $header = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="users.csv"'
+        ];
+
+        $columns = ['first_name', 'last_name', 'email', 'phone', 'address'];
+
+        $callback = function () use ($user, $columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+            foreach ($user as $users) {
+                $row['first_name'] =  $users['first_name'];
+                $row['last_name'] =  $users['last_name'];
+                $row['email'] = $users['email'];
+                $row['phone'] = $users['phone'];
+                $row['address'] = $users['address'];
+                fputcsv($file, array(
+                    $row['first_name'] = $row['first_name'],
+                    $row['last_name'] = $row['last_name'],
+                    $row['email'] = $row['email'],
+                    $row['phone'] = $row['phone'],
+                    $row['address'] = $row['address']
+                ));
+            }
+            fclose($file);
+        };
+        return response()->stream($callback, 200, $header);
     }
 }
