@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>User Data</h1>
           </div>
         </div>
       </div>
@@ -22,42 +22,40 @@
             </div>
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTabel</h3>
+                <h3 class="card-title">User Data</h3>
+                <a href="{{url('user/export')}}" class="btn btn-primary float-right">Export To Users</a>
               </div>
               <form action="" method="POST" enctype="multipart/form-data" class="mb-5">
                 <div class="card-body">
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Student Name</th>
-                        <th>Student Email</th>
-                        <th>Gender</th>
-                        <th>Student Image</th>
-                        <th>Organization Name</th>
+                        <th>User Name</th>
+                        <th>User First Name</th>
+                        <th>User Email</th>
+                        <th>User Phone</th>
+                        <th>User Address</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($client as $item)
-                      @php
-                          $user = App\Models\Organization::find($item->organization_id)
-                      @endphp
-                        <tr>
-                        <td>{{$item->id}}</td>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->email}}</td>
-                        <td>{{$item->phone}}</td>
-                        <td>{{$user->name}}</td>
-                          <td>
-                            <a href="" class="btn text-danger">
+                      @foreach ($user as $users)
+                      <tr>
+                        <td>{{$users->id}}</td>
+                        <td>{{$users->first_name}}</td>
+                        <td>{{$users->email}}</td>
+                        <td>{{$users->phone}}</td>
+                        <td>{{$users->address}}</td>
+                        <td>
+                            <a href="{{url('user/destroy', ['id' => $users->id])}}" class="btn text-danger">
                               <i class="fas fa-solid fa-trash mx-4 "></i>
                             </a>
-                            <a href="" class="btn text-success">
+                            <a href="{{url('user/edit', ['id' => $users->id])}}" class="btn text-success">
                               <i class="fas fa-edit"></i>
                             </a>
                           </td>
                         </tr>
-                      @endforeach
+                        @endforeach
                     </tbody>
                     <tfoot>
                     </tfoot>

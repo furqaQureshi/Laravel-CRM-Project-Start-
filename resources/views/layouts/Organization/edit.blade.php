@@ -1,6 +1,8 @@
+  
 @extends('layouts.SideBar')
 
-@section('love')
+@section('sideBar')
+    
 <div class="wrapper">
   <div class="content-wrapper">
     <div class="content-wrappe">
@@ -8,7 +10,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>User Create</h1>
+              <h1>Organization Edit</h1>
             </div>
           </div>
         </div>
@@ -19,28 +21,28 @@
             <div class="col">
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">User Create </h3>
+                  <h3 class="card-title">Organization Edit</h3>
                 </div>
                 <form class="mb-5">
                   <div class="card-body">
                   <div class="form-group">
-                      <label for="exampleInputEmail1">First Name</label>
-                      <input type="text" class="form-control" name="first_name" placeholder="First Name">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="text" class="form-control" name="name" placeholder="First Name">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Last Name</label>
-                      <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                      <label for="exampleInputEmail1">Address</label>
+                      <textarea class="form-control" name="address" rows="2"></textarea>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Website</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="website">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">User Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">User Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      <label for="exampleInputPassword1">Description</label>
+                      <textarea class="form-control" name="description" rows="2"></textarea>
+
                     </div>
                   <div class="card-footer">
-                    <button name="submit" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary">Organization Edit</button>
                   </div>
                 </form>
               </div>
@@ -52,4 +54,6 @@
   </div>
 </div>
 
+ 
 @endsection
+ 

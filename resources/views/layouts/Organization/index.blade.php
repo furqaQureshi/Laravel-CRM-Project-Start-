@@ -1,7 +1,5 @@
 @extends('layouts.SideBar')
 
-
-
 @section('sideBar')
 <div class="wrapper">
   <div class="content-wrapper">
@@ -29,34 +27,29 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Student Name</th>
+                        <th>Organization Id</th>
                         <th>Student Email</th>
                         <th>Gender</th>
                         <th>Student Image</th>
-                        <th>Organization Name</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($client as $item)
-                      @php
-                          $user = App\Models\Organization::find($item->organization_id)
-                      @endphp
-                        <tr>
+                      @foreach ($organization as $item)
+                      <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->name}}</td>
-                        <td>{{$item->email}}</td>
-                        <td>{{$item->phone}}</td>
-                        <td>{{$user->name}}</td>
-                          <td>
-                            <a href="" class="btn text-danger">
-                              <i class="fas fa-solid fa-trash mx-4 "></i>
-                            </a>
-                            <a href="" class="btn text-success">
-                              <i class="fas fa-edit"></i>
-                            </a>
-                          </td>
-                        </tr>
+                        <td>{{$item->address}}</td>
+                        <td>{{$item->website}}</td>
+                        <td>
+                          <a href="" class="btn text-danger">
+                            <i class="fas fa-solid fa-trash mx-4 "></i>
+                          </a>
+                          <a href="" class="btn text-success">
+                            <i class="fas fa-edit"></i>
+                          </a>
+                        </td>
+                      </tr>
                       @endforeach
                     </tbody>
                     <tfoot>
