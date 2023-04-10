@@ -23,6 +23,7 @@
                   <h3 class="card-title">Task Create</h3>
                 </div>
                 <form class="mb-5" method="POST" action="{{url('task/create')}}">
+                  @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Title</label>
@@ -32,26 +33,30 @@
                       <label for="exampleInputEmail1">Status</label>
                       <select name="status" class="form-control">
                         <option value="">Select Your Satus</option>
-                        <option value="open">Open</option>
-                        <option value="in progress">In Progress</option>
-                        <option value="closed">Closed</option>
+                        @foreach ($status as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
                       </select>
                       <label for="exampleInputEmail1">Project</label>
                       <select name="project" class="form-control">
                         <option value="">Select Your Project</option>
-                        <option value="open">Open</option>
+                        @foreach ($project as $pro)
+                        <option value="{{$pro->id}}">{{$pro->title}}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">User</label>
                       <select name="user" class="form-control">
                         <option value="">Select Your User</option>
-                        <option value="open">Open</option>
+                        @foreach ($user as $user)
+                        <option value="{{$user->id}}">{{$user->name}}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Data</label>
-                       <input type="date" min="{{date('Y-m-d')}}" class="form-control" name="data" placeholder="Enter Your Data">
+                       <input type="date" min="{{date('Y-m-d')}}" class="form-control" name="date" placeholder="Enter Your Data">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Descritpion</label>

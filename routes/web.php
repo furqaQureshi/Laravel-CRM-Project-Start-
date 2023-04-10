@@ -66,7 +66,7 @@ Route::group(['prefix' => 'organzition'], function () {
 Route::group(['prefix' => 'project'], function () {
     Route::get('/create', [ProjectController::class, 'index']);
     Route::post('/create', [ProjectController::class, 'organization_create']);
-    Route::get('/data', [ProjectController::class, 'store']);
+    Route::get('/data', [ProjectController::class, 'store'])->name('project.data');
 });
 
 // 

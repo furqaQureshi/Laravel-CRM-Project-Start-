@@ -27,28 +27,43 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Student Name</th>
-                        <th>Student Email</th>
-                        <th>Gender</th>
-                        <th>Student Image</th>
+                        <th>Id</th>
+                        <th>Client Name</th>
+                        <th>User Name</th>
+                        <th>Status</th>
+                        <th>Project Title</th>
+                        <th>Project Deadline</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>Id</td>
-                        <td>Name</td>
-                        <td>gender</td>
-                          <td>gender</td>
-                          <td>
-                            <a href="" class="btn text-danger">
-                              <i class="fas fa-solid fa-trash mx-4 "></i>
-                            </a>
-                            <a href="" class="btn text-success">
-                              <i class="fas fa-edit"></i>
-                            </a>
-                          </td>
-                        </tr>
+                      @foreach ($project as $i)
+                      <tr>
+                        <td>{{$i->id}}</td>
+                        @php
+                        $client = App\Models\Client::find($i->client_id);
+                        @endphp
+                        <td>{{$client->name}}</td>
+                        @php
+                        $client = App\Models\User::find($i->manager_id);
+                        @endphp
+                        <td>{{$client->name}}</td>
+                        @php
+                        $user = App\Models\Status::find($i->status_id);
+                        @endphp
+                        <td>{{$user->name}}</td>
+                        <td>{{$i->title}}</td>
+                        <td>{{$i->deadline}}</td>
+                        <td>
+                          <a href="" class="btn text-danger">
+                            <i class="fas fa-solid fa-trash mx-4 "></i>
+                          </a>
+                          <a href="" class="btn text-success">
+                            <i class="fas fa-edit"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      @endforeach
                     </tbody>
                     <tfoot>
                     </tfoot>

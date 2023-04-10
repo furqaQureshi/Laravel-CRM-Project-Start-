@@ -51,7 +51,9 @@
                       <label for="my-input">User Name</label>
                       <select name="user_name" class="form-control">
                         <option value="">Select Your User</option>
-                        <option value=""></option>
+                        @foreach ($user as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="form-group">
