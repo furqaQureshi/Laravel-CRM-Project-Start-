@@ -40,23 +40,23 @@
                     <tbody>
                       @foreach ($client as $item)
                       @php
-                          $user = App\Models\Organization::find($item->organization_id)
+                      $user = App\Models\Organization::find($item->organization_id)
                       @endphp
-                        <tr>
+                      <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->email}}</td>
                         <td>{{$item->phone}}</td>
                         <td>{{$user->name}}</td>
-                          <td>
-                            <a href="" class="btn text-danger">
-                              <i class="fas fa-solid fa-trash mx-4 "></i>
-                            </a>
-                            <a href="" class="btn text-success">
-                              <i class="fas fa-edit"></i>
-                            </a>
-                          </td>
-                        </tr>
+                        <td>
+                          <a href="{{url('client/destroy/' . $item->id)}}" class="btn text-danger">
+                            <i class="fas fa-solid fa-trash mx-4 "></i>
+                          </a>
+                          <a href="" class="btn text-success">
+                            <i class="fas fa-edit"></i>
+                          </a>
+                        </td>
+                      </tr>
                       @endforeach
                     </tbody>
                     <tfoot>

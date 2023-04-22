@@ -23,22 +23,24 @@
                 <div class="card-header">
                   <h3 class="card-title">Organization Edit</h3>
                 </div>
-                <form class="mb-5">
+                <form class="mb-5" method="POST" action="{{url("organzition/edit/". $organization->id)}}">
+                  @csrf
                   <div class="card-body">
                   <div class="form-group">
+                    <input type="hidden" class="form-control" value="{{$organization->id}}">
                       <label for="exampleInputEmail1">Name</label>
-                      <input type="text" class="form-control" name="name" placeholder="First Name">
+                      <input type="text" class="form-control" value="{{$organization->name}}" name="name" placeholder="First Name">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Address</label>
-                      <textarea class="form-control" name="address" rows="2"></textarea>
+                      <textarea class="form-control" name="address" rows="2">{{$organization->address}}</textarea>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Website</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="website">
+                      <input type="text" class="form-control" value="{{$organization->website}}" id="exampleInputEmail1" placeholder="Enter email" name="website">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Description</label>
-                      <textarea class="form-control" name="description" rows="2"></textarea>
+                      <textarea class="form-control" name="description" rows="2">{{$organization->description}}</textarea>
 
                     </div>
                   <div class="card-footer">

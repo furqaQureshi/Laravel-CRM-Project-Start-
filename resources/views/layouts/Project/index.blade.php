@@ -43,22 +43,22 @@
                         @php
                         $client = App\Models\Client::find($i->client_id);
                         @endphp
-                        <td>{{$client->name}}</td>
+                        <td>{{$client->name ?? null}}</td>
                         @php
-                        $client = App\Models\User::find($i->manager_id);
-                        @endphp
-                        <td>{{$client->name}}</td>
-                        @php
-                        $user = App\Models\Status::find($i->status_id);
+                        $user = App\Models\User::find($i->manager_id);
                         @endphp
                         <td>{{$user->name}}</td>
+                        @php
+                        $status = App\Models\Status::find($i->status_id);
+                        @endphp
+                        <td>{{$status->name}}</td>
                         <td>{{$i->title}}</td>
                         <td>{{$i->deadline}}</td>
                         <td>
-                          <a href="" class="btn text-danger">
+                          <a href="{{url("project/delete/" .$i->id)}}" class="btn text-danger">
                             <i class="fas fa-solid fa-trash mx-4 "></i>
                           </a>
-                          <a href="" class="btn text-success">
+                          <a href="{{url("project/edit/" .$i->id)}}" class="btn text-success">
                             <i class="fas fa-edit"></i>
                           </a>
                         </td>

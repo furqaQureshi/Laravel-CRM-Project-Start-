@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Project;
-
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -37,5 +37,11 @@ class ProjectController extends Controller
     {
         $project = Project::all();
         return view('layouts.Project.index', ['project' => $project]);
+    }
+    public function destory($id)
+    {
+        $project = Project::find($id);
+        $project->delete();
+        return redirect('project/data');
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PermisionController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
+use App\Models\Client;
 use App\Models\Organization;
 use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'client'], function () {
     Route::get('/create', [ClientController::class, 'client_create']);
     Route::post('/create', [ClientController::class, 'create']);
     Route::get('/data', [ClientController::class, 'store']);
+    Route::get('/destroy/{id}', [ClientController::class, 'destroy']);
 });
 
 // permision routes define 
@@ -60,6 +62,9 @@ Route::group(['prefix' => 'organzition'], function () {
     Route::get('/create', [OrganizationController::class, 'index']);
     Route::post('/create', [OrganizationController::class, 'organization_create']);
     Route::get('/data', [OrganizationController::class, 'store']);
+    Route::get('/edit/{id}', [OrganizationController::class, 'edit']);
+    Route::post('/edit/{id}', [OrganizationController::class, 'update']);
+    Route::get('/delete/{id}', [OrganizationController::class, 'destory']);
 });
 
 // project routes define
@@ -67,6 +72,7 @@ Route::group(['prefix' => 'project'], function () {
     Route::get('/create', [ProjectController::class, 'index']);
     Route::post('/create', [ProjectController::class, 'organization_create']);
     Route::get('/data', [ProjectController::class, 'store'])->name('project.data');
+    Route::get('/delete/{id}', [ProjectController::class, 'destory']);
 });
 
 // 

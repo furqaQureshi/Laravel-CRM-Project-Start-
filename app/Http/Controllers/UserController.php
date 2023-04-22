@@ -30,7 +30,7 @@ class UserController extends Controller
         return view('layouts.User.index', ['user' => $user]);
     }
     public function edit($id)
-    {
+    { 
         $user = User::find($id);
         return view('layouts.User.edit', ['user' => $user]);
     }
@@ -38,15 +38,15 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->name = $request->name;
-        $user->email = $request->user_email;
-        $user->phone = $request->user_phone;
-        $user->address = $request->user_address;
+        $user->email = $request->email;
         $user->save();
         return redirect('/user/data')->with(['Success' => "User Edit is SuccessFully...."]);
     }
     public function destroy($id)
     {
-        return $id . "ok";
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/user/data');
     }
     public function export_user()
     {

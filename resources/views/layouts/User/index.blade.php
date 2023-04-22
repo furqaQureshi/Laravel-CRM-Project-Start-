@@ -47,10 +47,10 @@
                         <td>{{$users->phone}}</td>
                         <td>{{$users->address}}</td>
                         <td>
-                            <a href="{{url('user/destroy', ['id' => $users->id])}}" class="btn text-danger">
+                            <a href="{{url('user/destroy/' .$users->id])}}" class="btn text-danger">
                               <i class="fas fa-solid fa-trash mx-4 "></i>
                             </a>
-                            <a href="{{url('user/edit', ['id' => $users->id])}}" class="btn text-success">
+                            <a href="{{url('user/edit/' .$users->id)}}" class="btn text-success">
                               <i class="fas fa-edit"></i>
                             </a>
                           </td>

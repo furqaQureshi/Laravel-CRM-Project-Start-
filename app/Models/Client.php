@@ -15,8 +15,8 @@ class Client extends Model
         'organization_id', 'name', 'email', 'phone'
     ];
 
-    public function organization_get()
+    public function organizations()
     {
-        return $this->hasOne(Organization::class, 'organization_id');
+        return $this->hasMany(Organization::class,'id','organization_id');
     }
 }

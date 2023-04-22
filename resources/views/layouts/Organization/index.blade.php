@@ -42,10 +42,10 @@
                         <td>{{$item->address}}</td>
                         <td>{{$item->website}}</td>
                         <td>
-                          <a href="" class="btn text-danger">
+                          <a href="{{url("organzition/delete/" .$item->id)}}" class="btn text-danger">
                             <i class="fas fa-solid fa-trash mx-4 "></i>
                           </a>
-                          <a href="" class="btn text-success">
+                          <a href="{{url("organzition/edit/" .$item->id)}}" class="btn text-success">
                             <i class="fas fa-edit"></i>
                           </a>
                         </td>
